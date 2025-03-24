@@ -58,9 +58,12 @@ public class TransactionService {
 
             if(responseBody != null){
                 String transferStatus = responseBody.get("status").toString();
-                Boolean transferBooleanAuthorization = (Boolean) responseBody.get("authorization");
+                Map<String, Object> data = (Map<String, Object>) responseBody.get("data");
 
-                return "sucess".equals(transferStatus) && Boolean.TRUE.equals(transferBooleanAuthorization);
+                if(data != null){
+                    Boolean authorization = (Boolean) data.get("authorization");
+                    return "sucess".equals(transferStatus) && Boolean.TRUE.equals(authorization);
+                }
             }
         }
         return false;
