@@ -1,12 +1,13 @@
 package com.fonseca.DesafioBackEnd.domain.user;
 
+import com.fonseca.DesafioBackEnd.dtos.UserDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table
+@Entity(name = "users")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,4 +28,14 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserType type;
     private BigDecimal balance;
+
+    public User(UserDTO data){
+        this.firstName = data.firstName();
+        this.lastName = data.lastName();
+        this.document = data.document();
+        this.email = data.email();
+        this.password = data.password();
+        this.type = data.userType();
+        this.balance = data.balance();
+    }
 }
