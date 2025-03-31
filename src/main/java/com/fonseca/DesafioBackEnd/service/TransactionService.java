@@ -1,4 +1,4 @@
-package com.fonseca.DesafioBackEnd.Service;
+package com.fonseca.DesafioBackEnd.service;
 
 import com.fonseca.DesafioBackEnd.domain.transaction.Transaction;
 import com.fonseca.DesafioBackEnd.domain.user.User;
@@ -7,11 +7,14 @@ import com.fonseca.DesafioBackEnd.repositories.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
+@Service
 public class TransactionService {
 
     @Autowired
@@ -75,6 +78,10 @@ public class TransactionService {
             }
         }
         return false;
+    }
+
+    public List<TransactionDTO> getAllTransactions(){
+        return this.repository.findAll().stream().map(TransactionDTO::new).toList();
     }
 
 
