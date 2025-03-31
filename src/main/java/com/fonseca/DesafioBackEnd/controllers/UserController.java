@@ -1,6 +1,6 @@
 package com.fonseca.DesafioBackEnd.controllers;
 
-import com.fonseca.DesafioBackEnd.Service.UserService;
+import com.fonseca.DesafioBackEnd.service.UserService;
 import com.fonseca.DesafioBackEnd.domain.user.User;
 import com.fonseca.DesafioBackEnd.dtos.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
