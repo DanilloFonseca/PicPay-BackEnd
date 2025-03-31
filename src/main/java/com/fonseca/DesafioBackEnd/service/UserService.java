@@ -1,4 +1,4 @@
-package com.fonseca.DesafioBackEnd.Service;
+package com.fonseca.DesafioBackEnd.service;
 
 import com.fonseca.DesafioBackEnd.domain.user.User;
 import com.fonseca.DesafioBackEnd.domain.user.UserType;
